@@ -1,0 +1,36 @@
+
+.parent-roomContainer{
+    height: 80%;
+    overflow:auto; 
+    list-style: none;
+    margin: 0;
+    padding: 30px;
+}
+
+.parent-roomContainer div{
+  display:inline-block;
+  clear: both;
+  padding: 10px;
+  border-radius: 30px;
+  margin-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.reciever-container{
+  background: #eee;
+  float: left;
+}
+.sender-container{
+  float: right;
+  background-color: rgba(112, 146, 190, 0.863);
+  color: #fff;
+}
+.reciever-container + .sender-container{
+    border-bottom-right-radius: 5px;
+}
+.sender-container + .sender-container{
+    border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.sender-container:last-of-type{
+    border-bottom-right-radius: 30px;
+}

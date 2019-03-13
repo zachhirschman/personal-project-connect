@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100');
+
+.register-box{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.About-icons{
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin:10px;
+}
+
+.message-icon, .person-icon, .share-icon {
+    width:80%;
+    height:15%;
+    border: solid 1px rgb(80, 104, 136);
+    background-color:rgb(112,146,190);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin:5%;
+}
+.message-icon, .person-icon, .share-icon > p{
+    color:white;
+    /* margin-left:30px; */
+}
+.stress{
+    color:rgb(80, 104, 136)
+}
+
+.line{
+    border: solid .5px rgb(80, 104, 136);
+    margin:20px;
+    height: 90%;
+    width:.5px;
+}
+.orLine{
+    border: solid .5px rgb(80, 104, 136);
+    height:.5px;
+    width: 95%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin-top:20px;
+}
+
+.choose-box{
+    width:60%;
+    height:90%;
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.login{
+    width:25%;
+    height:50px;
+    background:rgb(112,146,190);
+    border:1px solid rgb(179, 179, 179);
+    color:white;
+    transition:.5s;
+    border-radius:50px;
+    margin-bottom:10px;
+    font-weight: 100;
+    font-family: 'Lato', sans-serif;
+    font-size:30px;
+}
+.login:hover{
+    transition: .5s;
+    border:1px solid rgb(80, 104, 136);
+    color:rgb(80, 104, 136);
+}
+
+.choose-box input{
+    padding:4px;
+    border: solid 1px rgb(80, 104, 136);
+}
+
+.circle{
+    border: solid 1px rgb(80, 104, 136);
+    border-radius:50px;
+    width:25px;
+    height:25px;
+    justify-content: center;
+    align-items:center;
+    display: flex; 
+    background-color:rgb(97, 115, 139);
+    color:white;
+    font-size: 13px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.register > ::placeholder{
+    color:rgb(66, 65, 65);
+}
+
+.login-box > ::placeholder{
+    color:rgb(66, 65, 65);
+}
+
+.login-box > button{
+    margin-top:5px;
+    padding:20px;
+    
+}
+
+.header-text{
+    margin-left:5%;
+    width:100%;
+    height:5%;
+    font-size:40px;
+    font-weight: 100;
+}
+
+.login-box{
+    width:100%;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+}
+
+.login-box{
+    margin-top:0px;
+}
+
+.login-box > input{
+    width:60%;
+    margin-top:10px;
+    border-radius:50px;
+    padding:10px;
+}
+
+
+.register{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    color:white;
+}
+
+.register-body{
+    width:100%;
+    flex-wrap:wrap;
+    flex-direction: column;
+    overflow: auto;
+    /* justify-content: center; */
+}
+
+

@@ -1,0 +1,37 @@
+
+.logo{
+    color:white;
+    font-size:30px;
+    padding:35px;
+    padding-top: 30px;
+}
+
+.logo-container{
+    text-decoration: none;
+}
+
+.header{
+    height: 40px;
+    width:100%;
+    background-color: rgb(112,146,190);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.UserInfo{
+    height:100%;
+    width:20%;
+    display:flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.UserInfo > h3{
+    color:white;
+}
+.logout{
+    background-color:none;
+    border:none;
+}
+
+
