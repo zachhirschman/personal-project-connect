@@ -32,7 +32,7 @@ export class Header extends Component{
     render(){
         return(
             <header className ="header">
-                    <Link to = "/" className = "logo-container"><div className = "logo">Connect</div></Link>
+                    <div className = "logo">Connect</div>
                     <div className = "UserInfo">
                     { this.state.user? <h3>{this.state.user.first_name  + " " + this.state.user.last_name}</h3>: null}
                     { this.state.user? <Link to = "/" ><button className ="goBack" onClick = {this.logout}><img src = {LogOut}></img></button></Link>:null }

@@ -46,7 +46,7 @@ export class RegisterForm extends Component{
             first_name,
             last_name,
             status:"",
-            profile_picture,
+            profile_picture: this.state.profile_picture == ""? "https://prd-wret.s3-us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/styles/full_width/public/thumbnails/image/placeholder-profile_2_0.png":this.state.profile_picture,
             department,
             password,
             email
