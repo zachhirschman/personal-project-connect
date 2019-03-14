@@ -6,7 +6,7 @@ import {connect} from "react-redux"
 import socketIOClient from 'socket.io-client';
 import {updateSocket} from "../../Redux/reducer"
 
-const socket = socketIOClient("http://localhost:4000/");
+const socket = socketIOClient();
 
 
 export class Container extends Component{
