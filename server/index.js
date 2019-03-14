@@ -76,6 +76,8 @@ massive(
         // if the two users do not have a room that they are in together, create one and populate the room table with it.
 
         socket.on('ConnectToUser', body =>{
+            console.log("on connect request. LOOK HERE FOR BUG", body)
+            const db = app.get("db")
             let room = ""
             console.log("Person that wants to initiate connection: ", body.userInformation.first_name)
             console.log("User id to contact: " , body.userToContactInformation.user_id)
@@ -110,7 +112,7 @@ massive(
                             io.in(response[0].room_name).emit("connectionInformation", connectionInformation)
                             console.log("Users are in room ", response[0].room_name )
                             //send welcome text
-                            let welcome = `Send ${body.userToContactInformation.first} a message!`
+                            let welcome = `Send ${connectedUsers[index].first_name} a message!`
                             io.in(response[0].room_name).emit("welcome", welcome )
                         })
                     }
@@ -119,14 +121,13 @@ massive(
                         socket.leave(mainLobby)
                         room = response[0].room_name
                         socket.join(room)
+                        //send connectionInformation
                         let connectionInformation = {
                             room:room,
                             sender:body.userInformation,
                             recipient:body.userToContactInformation
                         }
 
-
-                        //send connection information 
                         console.log("Sending connection information now", connectionInformation)
                         io.in(room).emit("connectionInformation", connectionInformation)
                         console.log("Users are in room ", room )
@@ -156,12 +157,17 @@ massive(
             io.in(mainLobby).emit("UserEnter", connectedUsers)
             console.log("Joined, ", mainLobby)
         })
+        socket.on("typeMessage", payload =>{
+            console.log(payload.room)
+            console.log(payload.message)
+            io.in(payload.room).emit("newType",payload.message)
+        })
 
         //listen for message from client, send it back
         socket.on('message', (body) => {
-            console.log(`${body.sender.user_id} is sending ${body.message} to ${body.recipient.user_id} in ${body.room}`)
+            console.log(`${body.user_1} is sending ${body.message} to ${body.user_2} in ${body.room}`)
             // room_name,sender,recipient,message
-            db.sendDataToRoom([body.room,body.sender.user_id,body.recipient.user_id,body.message]).then(response =>{
+            db.sendDataToRoom([body.room,body.user_1,body.user_2,body.message]).then(response =>{
                 console.log("Response after sending message: ", response[0])
             })
 

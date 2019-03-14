@@ -34,6 +34,7 @@ export class RegisterForm extends Component{
             logPassword
         }
         axios.post("/login", body).then(response =>{
+            console.log(response.data)
             this.props.updateUser(response.data)
             this.setState({redirect:true})
         }).catch(error =>{error.status = "403"? this.setState({errorMsg:"Incorrect username or password"}) : null})
@@ -87,12 +88,12 @@ export class RegisterForm extends Component{
                 <div className = "line"></div>
 
                 <div className = "choose-box">
-                <div className = "login-box">
-                        <h2>Log in</h2>
-                        <input className = "email-input" placeholder = "Enter email..." onChange = {(e) =>{this.setState({logEmail:e.target.value})}}></input>
-                        <input className = "password-input" type = "password" placeholder = "Enter password..." onChange = {(e) =>{this.setState({logPassword:e.target.value})}}></input>
-                        { this.state.errorMsg? <p>{this.state.errorMsg}</p> : null }
-                        <button className = "login" onClick = {this.login}>Login</button>
+                    <div className = "login-box">
+                            <h2>Log in</h2>
+                            <input className = "email-input" placeholder = "Enter email..." onChange = {(e) =>{this.setState({logEmail:e.target.value})}}></input>
+                            <input className = "password-input" type = "password" placeholder = "Enter password..." onChange = {(e) =>{this.setState({logPassword:e.target.value})}}></input>
+                            { this.state.errorMsg? <p className = "name">{this.state.errorMsg}</p> : null }
+                            <button className = "login" onClick = {this.login}>Login</button>
                     </div>
 
                     <div className = "orLine">
@@ -101,21 +102,23 @@ export class RegisterForm extends Component{
                         </div>
                     </div>
 
+                    <h4 className = "register-text">Register</h4>
                     <div className = "register-body">
-                        
-                            <h4>First things first, tell us a little about yourself.</h4>
-                            <h4>Name:</h4>
+                        <div className = "name-holder">
                             <input placeholder = "Enter First name" onChange = {(e) =>{this.setState({first_name:e.target.value})}}></input>
                             <input placeholder = "Enter Last name" onChange = {(e) =>{this.setState({last_name:e.target.value})}}></input>
-                            <h4>Email:</h4>
                             <input className = "email-input" placeholder = "Enter email..." onChange = {(e) =>{this.setState({email:e.target.value})}}></input>
-                            <h4>Password:</h4>
                             <input className = "password-input" type = "password" placeholder = "Enter password..." onChange = {(e) =>{this.setState({password:e.target.value})}}></input>
-                            <h4>Upload a profile picture!</h4><input placeholder = "Input image url here! " onChange = {(e) =>{this.setState({profile_picture:e.target.value})}}></input>
-
-                            <button onClick = {this.register}>Register</button>
-                        
                         </div>
+
+                        <div className = "image-holder">
+                            <input placeholder = "Input image url here! " onChange = {(e) =>{this.setState({profile_picture:e.target.value})}}></input>
+                            <div className = "picture-frame"><img className = "profile-picture" src = {this.state.profile_picture? this.state.profile_picture: null}></img></div>
+                            <button className = "register-button" onClick = {this.register}>Register</button>
+                        </div>
+                            
+                        
+                    </div>
                     
 
                 </div>

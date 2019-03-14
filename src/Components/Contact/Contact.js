@@ -17,10 +17,8 @@ export class Contact extends Component{
             room:""
         }
         props.socket.on("connectionInformation", connectionInformation =>{
-            console.log("room to pull data from: ", connectionInformation.room)
+            console.log("connection information: ", connectionInformation)
                 props.updateConnectionInformation(connectionInformation)
-            
-
             //When clicking the chat button, get all the history the two users have together.
             // console.log("this is what im sending", this.connectionInformation.room)
 
@@ -32,7 +30,6 @@ export class Contact extends Component{
         })
         
     }
-    
     componentDidUpdate = (prevProps, prevState) =>{
         if(this.props.users.email != prevProps.users.email){
 
@@ -40,10 +37,7 @@ export class Contact extends Component{
                 users:this.props.users
             })
         }
-
     }
-
-
     toggleMoreMenu =() =>{
         this.setState({
             toggleMore: !this.state.toggleMore
@@ -88,7 +82,7 @@ export class Contact extends Component{
     }
 
     render(){
-        
+        console.log("Props in contact before destructuring contact", this.props)
         const { first,last,image,status,dept,user_id,user } = this.props
         
         const userInformation = {
@@ -102,7 +96,6 @@ export class Contact extends Component{
 
         const moreMenu = (
             <div className = {this.state.toggleMore? "moreMenu":"hidden"}>
-                <p>Department: {dept}</p>
                 <p>Status: {status}</p>
             </div>
         )

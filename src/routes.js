@@ -9,9 +9,8 @@ import { VideoChatHolder } from "./Components/VideoChatHolder/VideoChatHolder";
 
 export default(
     <Switch>
-        <Route exact path = "/" component = { Home }/>
+        <Route exact path = "/" component = { RegisterForm }/>
         <Route path = "/dashboard" component = { Dashboard }/>
-        <Route path = "/login" component = { RegisterForm }/>
         <Route path = "/VideoCall" component = { VideoChatHolder }/>
     </Switch>
 )

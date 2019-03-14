@@ -71,7 +71,7 @@ export class Profile extends Component{
             return(
                 <div className = "Contact-Parent">
                     <img className = "comment-pic" src = {contact.profile_picture}></img>
-                    <p className = "name">{contact.first_name + " " + contact.last_name}</p>
+                    <p>{contact.first_name + " " + contact.last_name}</p>
                     <button className = "deleteFriend" onClick ={() =>{this.deleteFriend(contact.connection_id)}}><img src = {deleteFriend}></img></button>
                     
                 </div>
@@ -101,8 +101,8 @@ export class Profile extends Component{
                 </div>
 
                 <div className = "about-container">
-                    <h3>Department: {userInfo.department}</h3>
-                    {this.state.toggleStatusUpdate?  editForm : <h3>Status: {userInfo.status} </h3> } <button className = "update-btn" onClick = {() => this.setState({toggleStatusUpdate:!this.state.toggleStatusUpdate})}>Update Status</button>
+                    {/* <h3>Department: {userInfo.department}</h3> */}
+                    {this.state.toggleStatusUpdate?  editForm : <h3 className = "name">Currently: {userInfo.status} </h3> } <button className = "update-btn" onClick = {() => this.setState({toggleStatusUpdate:!this.state.toggleStatusUpdate})}>Update Status</button>
                 </div>
 
                 <div className = "friends-list">

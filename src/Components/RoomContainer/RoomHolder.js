@@ -18,18 +18,19 @@ export class RoomHolder extends Component{
             chatMapped = this.props.chatHistory.map(message =>{
                 return(
                                         
-                    <div className = {(currentUser.user_id == message.sender && currentUser.user_id != message.recipient)? "sender-container" :"reciever-container"}>
+                    <div className = {this.props.currentUser.user_id !== message.sender? "reciever-container":"sender-container"}>
                         <p>{message.message}</p>
                     </div>
                     
                 )
             })
         }
-
+        console.log(this.props)
         return(
             <div className = "parent-roomContainer">
                 
-               {chatMapped.length? chatMapped:<p>No history with this user, say hi!</p>}
+               {/* {this.props.typeMessage? <p className = "name">{this.props.typeMessage}</p> : null} */}
+     {chatMapped.length? chatMapped:<p>No history with this user, say hi!</p>}
             </div>
         )
     }

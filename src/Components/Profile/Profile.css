@@ -41,8 +41,9 @@
 }
 .profile-picture{
     max-width:100%;
-    height:auto;
-    width:auto;
+    object-fit: cover;
+  width: auto;
+  height: 100%;
 }
 
 .name-bar{
@@ -73,7 +74,7 @@
 }
 
 .status-input{
-    width:78%;
+    width:70%;
     padding:5px;
 }
 
@@ -96,13 +97,15 @@ button:hover{
 }
 
 .about-container > h3{
-    color: rgb(40, 43, 46);
+    color: rgb(80, 104, 136);
     font-weight: normal;
 }
 .about-container{
     margin:2%;
     flex-direction:column;
     flex-wrap:wrap;
+    overflow: auto;
+    max-height:100px;
 }
 
 .status-container{
@@ -112,8 +115,8 @@ button:hover{
 
 .friends-list{
     margin:2%;
-    max-height:28%;
-    height:28%;
+    /* max-height:35%; */
+    height:35%;
     width:95%;
     /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
     border-radius: 4px;
@@ -139,7 +142,8 @@ button:hover{
     display:flex;
     justify-content: flex-start;
     align-items:center;
-    background-color: #d7dce6;
+    background-color: rgb(112,146,190);
+    color:white;
 }
 .placeholder{
     width:100%;
@@ -148,8 +152,16 @@ button:hover{
     align-items:center;
     display: flex;
 }
-.deleteFriend{
+/* .deleteFriend{
     border:none;
     background: none;
     margin-left:20px;
+    height:45px;
+    width:60px;
+} */
+.deleteFriend{
+    margin-left:60px;
+    float:right;
+    border:none;
+    background:none;
 }

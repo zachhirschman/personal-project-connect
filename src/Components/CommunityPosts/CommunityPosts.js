@@ -20,7 +20,8 @@ export default class CommunityPosts extends Component{
             post_text:'',
             user_comment:"",
             toggleDrop:false,
-            toggleClick:false
+            toggleClick:false,
+            post_image:""
         }
         props.socket.on("NewPostToShow", newPosts =>{
             // console.log("After emmiting all posts to all users: ", newPosts)
@@ -60,7 +61,7 @@ export default class CommunityPosts extends Component{
             last_name:this.props.currentUser.last_name,
             profile_picture:this.props.currentUser.profile_picture,
             post_text:this.state.post_text,
-            post_image:""
+            post_image:this.state.post_image
         }
         this.props.socket.emit("newPost",body)
         this.props.toggleNewPostFn()
@@ -103,16 +104,16 @@ export default class CommunityPosts extends Component{
             <div className = {newPost? "Show-NewPost":"Hide-NewPost"}>
                 <div className = "container-Header">New Post</div>
                 <div className = "New-Post-content">
-                    <input className = "New-post-input" placeholder = "What's on your mind?" onChange = {(e) =>{this.setState({post_text:e.target.value})}}></input>
-                    <div className = "divider"></div>
-                    {this.state.toggleDrop? <div className= "Image-uploader"> Upload an image !</div> :null}
+                    <textarea className = "New-post-input" placeholder = "What's on your mind?" onChange = {(e) =>{this.setState({post_text:e.target.value})}}></textarea>
+                    <div className = "content-divider"></div>
+                    <input className = "image-adder" placeholder = "Add an image..." onChange = {(e) =>{this.setState({post_image:e.target.value})}}></input>
+                    {/* <div className = "divider"></div> */}
                     <div className = "Lower-container">
+                    {/* {this.state.toggleDrop? <div className= "Image-uploader"><input placeholder = "Enter a image url..."></input></div> :null} */}
                         <div className = "Button-holder">
-                            <button className = "AddImage" onClick = {this.handleChange}><img src = {uploadImg}></img>Add an Image!</button>
+                            {/* <button className = "AddImage" onClick ={this.handleChange}><img src = {uploadImg}></img>Add an Image!</button> */}
+                        <button className = "Button-holder" onClick = {this.makeNewPost}>Share</button>
                         </div>
-                        <button className = "Button-holder" onClick = {this.makeNewPost}>
-                            Share
-                        </button>
                     </div>
                 </div>
             </div>
@@ -149,6 +150,8 @@ export default class CommunityPosts extends Component{
                             <div className = "textholder">
                                 <p>{post.post_text}</p>
                             </div>
+                            {post.post_img == ""? null:<div className = "content-divider"></div>}
+                            {post.post_img == ""? null:<div className = "picture-frame"><img className = "profile-picture" src = {post.post_img}></img></div>}
                             
                             <div className = "content-divider"></div>
 
