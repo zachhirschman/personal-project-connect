@@ -1,10 +1,11 @@
-## Pseudocode for connection
-- user comes to app, signs up, and then joins own room.
-- user is put into database. And their presence is emited to everyone accross all rooms.
+# Connect - DevMountain Personal Project
 
+## connect is a social media application that allows users to chat with eachother directly in real time using Socket.io , React.js , Redux, Node.js, and Express.
 
-## Socket.io findings
+### Login view
+![alt text](./Connect-1.png)
 
-- both sides emit and listen to events
-- to start a socket: io.on("connection", (socket) =>{})  ==> Socket is the line that connects client to server.
--
+### Dashboard view
+![alt text](./Connect-2.jfif)
+
+### this project was made over the course of two weeks and taught me a great deal about server - client relationships, as well as front end design. 
