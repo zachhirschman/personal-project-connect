@@ -6,3 +6,10 @@
     display:flex;
     margin-left:1%;
 }
+@media(max-width:500px){
+    .DashContainer{
+        flex-direction:column;
+        justify-content: space-evenly;
+        overflow-y: auto;
+    }
+}
