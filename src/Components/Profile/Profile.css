@@ -165,3 +165,12 @@ button:hover{
     border:none;
     background:none;
 }
+
+@media(max-width:500px){
+    .parent-container{
+        margin-top:285%;
+        width:80%;
+        height:900px;
+        margin-bottom:80%;
+    }
+}

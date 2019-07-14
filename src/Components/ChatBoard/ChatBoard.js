@@ -38,6 +38,13 @@ export class ChatBoard extends Component{
             })
         })  
 
+        props.socket.on("notification", notification =>{
+            console.log("Got a notification!", notification, props)
+            if(props.currentUser.user_id === notification.recipient){
+                alert(`Someone sent you a message`)
+            } 
+        })
+
         props.socket.on("welcome", welcome =>{
             // console.log("got welcome")
             this.setState({

@@ -173,6 +173,7 @@ massive(
             })
 
             io.in(body.room).emit('messageFromServer', "A new message was sent");
+            io.emit('notification', {sender:body.user_1,recipient:body.user_2})
         })
         socket.on("Like", body =>{
             let count = 0;

@@ -55,5 +55,12 @@
     
 }
 
+@media(max-width:500px){
+    .search-Grandparent, .search-Grandparent-supreme{
+        margin-top:10%;
+        width:80%;
+        height:600px;
+    }
+}
 
 
