@@ -26,6 +26,7 @@ export class Header extends Component{
     logout = () =>{
         axios.post("/logout").then(response =>{
             this.setState({user:null})
+            this.props.socket.emit('logout');
         })
     }
 

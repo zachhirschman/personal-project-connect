@@ -190,7 +190,7 @@ massive(
 
         //listen for logout or videochat entrance
         socket.on("logout", () =>{
-            console.log("User disconnected")
+            console.log("User disconnected!!! ")
             socket.disconnect(true)
         })
         //listen for reconnect
@@ -201,8 +201,8 @@ massive(
         
         socket.on('disconnect', () => {
             // connectedUsers2 = connectedUsers.slice()
+            console.log('Removing user from connected Users .... ', connectedUsers);
             let index = connectedUsers.findIndex(user => user[socket.id] == socket.id)
-            console.log(" Index to delete: ", index)
             index != -1? connectedUsers.splice(index,1):console.log("Something's wrong")
 
             io.in(mainLobby).emit("UserEnter", connectedUsers)
